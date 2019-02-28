@@ -46,8 +46,10 @@ def convert_int(num):
         numword = ones.get(num)
     
     # Tens
-    if tens_place >= 2:
+    if tens_place >= 2 and ones_place > 0:
         tens_word = ('{}-{}'.format(tens.get(tens_place), ones.get(ones_place)))
+    elif tens_place >= 2 and ones_place == 0:
+        tens_word = '%s' % tens.get(tens_place)
     elif tens_place == 1:
         tens_word = '%s' % ones.get(num % 100)
     elif tens_place < 1 and ones_place != 0:
@@ -99,3 +101,9 @@ def convert_int(num):
 convert_int(100003)
 convert_int(300)
 convert_int(12008)
+convert_int(120)
+convert_int(300250)
+convert_int(450002)
+convert_int(600012)
+convert_int(200300)
+convert_int(19)
